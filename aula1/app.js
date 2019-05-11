@@ -4,8 +4,9 @@ const usersRoute = require('./routes/users')
 const app = express();
 const mongoose = require('mongoose');
 const bodyPaser = require('body-parser')
+const config = require('./config/config')()
 
-const URL = 'mongodb+srv://admin:88130279@cluster0-rxn8r.mongodb.net/test?retryWrites=true'
+const URL = config.bdString
 const options = {reconnectTries: Number.MAX_VALUE,reconnectInterval: 500, poolSize: 5, useNewUrlParser: true}
 mongoose.connect(URL,options);
 mongoose.set('useCreateIndex',true)
